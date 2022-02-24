@@ -1,0 +1,21 @@
+aside{
+    height: 95vh;
+    width: 25vw;
+    border-right: 3px solid lightgrey;
+}
+
+.sidebar-items{
+    margin-top: 10vh;
+}
+
+.sidebar-footer{
+    position: absolute;
+    bottom: 20px;
+}
+
+.sidebar-item-active {
+    background-color: #97BF11;
+    color: white
+}
+
+
