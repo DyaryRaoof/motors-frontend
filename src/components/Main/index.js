@@ -32,7 +32,7 @@ const motors = [
 const Main = () => (
   <div>
     <div className="row">
-      <div className="col-2 ">
+      <div className="col-2 p-0">
         <aside className="p-3 d-sm-block d-none">
           <h1>Motors</h1>
           <div className="sidebar-items">
@@ -65,7 +65,7 @@ const Main = () => (
           <div />
         </aside>
       </div>
-      <div className="col-md-10 col-sm-12 p-5">
+      <div className="col-md-10 col-sm-12 p-0">
         <h1 className="fw-bolder text-center">LATEST MODELS</h1>
         <p className="text-muted text-center main-screen-subtitle">please select a Motorcyle Model</p>
         <div className="row motor-cards-wrapper">
