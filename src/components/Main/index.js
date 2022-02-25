@@ -60,13 +60,13 @@ const Main = () => {
           <div className="row motor-cards-wrapper">
             <div className="col-md-4">
 
-              {motors[0] ? <MotorCard motor={motors[0]} onClick={() => { }} /> : null}
+              {motors[0] ? <MotorCard key="1" motor={motors[0]} onClick={() => { }} /> : null}
             </div>
             <div className="col-md-4">
-              {motors[1] ? <MotorCard motor={motors[1]} onClick={() => { }} /> : null}
+              {motors[1] ? <MotorCard key="2" motor={motors[1]} onClick={() => { }} /> : null}
             </div>
             <div className="col-md-4">
-              {motors[2] ? <MotorCard motor={motors[2]} onClick={() => { }} /> : null}
+              {motors[2] ? <MotorCard key="3" motor={motors[2]} onClick={() => { }} /> : null}
             </div>
           </div>
           <div className="d-sm-block d-none">
