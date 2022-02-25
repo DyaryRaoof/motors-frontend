@@ -67,8 +67,6 @@ aside {
   border-top-left-radius: 100%;
 }
 
-
-
 @media screen and (min-width: 780px) {
   .motor-cards-wrapper {
     margin: 0 200px !important;
