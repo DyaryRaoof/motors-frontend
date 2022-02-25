@@ -65,7 +65,7 @@ const Main = () => (
           <div />
         </aside>
       </div>
-      <div className="col-md-10 col-sm-12 p-0">
+      <div className="col-md-10 col-sm-12 p-0 latest-models-wrapper">
         <h1 className="fw-bolder text-center">LATEST MODELS</h1>
         <p className="text-muted text-center main-screen-subtitle">please select a Motorcyle Model</p>
         <div className="row motor-cards-wrapper">
