@@ -4,8 +4,8 @@ import Main from './components/Main';
 function App() {
   return (
     <div>
-      <Navbar />
-      <Main />
+      <Navbar key="1" />
+      <Main key="2" />
     </div>
   );
 }
