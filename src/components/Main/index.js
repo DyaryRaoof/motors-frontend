@@ -58,15 +58,15 @@ const Main = () => {
           <h1 className="fw-bolder text-center">LATEST MODELS</h1>
           <p className="text-muted text-center main-screen-subtitle">please select a Motorcyle Model</p>
           <div className="row motor-cards-wrapper">
-            <div className="col-md-4">
+            <div className="col-md-4" key="1">
 
-              {motors[0] ? <MotorCard key="1" motor={motors[0]} onClick={() => { }} /> : null}
+              {motors[0] ? <MotorCard motor={motors[0]} onClick={() => { }} /> : null}
             </div>
-            <div className="col-md-4">
-              {motors[1] ? <MotorCard key="2" motor={motors[1]} onClick={() => { }} /> : null}
+            <div className="col-md-4" key="2" >
+              {motors[1] ? <MotorCard motor={motors[1]} onClick={() => { }} /> : null}
             </div>
-            <div className="col-md-4">
-              {motors[2] ? <MotorCard key="3" motor={motors[2]} onClick={() => { }} /> : null}
+            <div className="col-md-4" key="3">
+              {motors[2] ? <MotorCard motor={motors[2]} onClick={() => { }} /> : null}
             </div>
           </div>
           <div className="d-sm-block d-none">
