@@ -62,7 +62,7 @@ const Main = () => {
 
               {motors[0] ? <MotorCard motor={motors[0]} onClick={() => { }} /> : null}
             </div>
-            <div className="col-md-4" key="2" >
+            <div className="col-md-4" key="2">
               {motors[1] ? <MotorCard motor={motors[1]} onClick={() => { }} /> : null}
             </div>
             <div className="col-md-4" key="3">
