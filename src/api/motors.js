@@ -4,15 +4,14 @@ import { fetchDetailMotors } from '../redux/motors/DetailMotors';
 
 const BASE_URL = 'http://localhost:3000/api/v1/motors';
 
-const getMotors = async (dispatch) => {
+export const getMotors = async (dispatch) => {
   const response = await axios.get(BASE_URL);
   dispatch(fetchMotors(response.data));
 };
 
-export const getMotorsDetail = async (dispatch) => {
-  await fetch('http://localhost:3000/api/v1/motors/1')
+export const getMotorsDetail = (id) => async (dispatch) => {
+  console.log(id);
+  fetch(`http://localhost:3000/api/v1/motors/${id}`)
     .then((res) => res.json())
     .then((resResponse) => dispatch(fetchDetailMotors(resResponse)));
 };
-
-export default getMotors;

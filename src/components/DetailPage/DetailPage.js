@@ -1,17 +1,9 @@
-import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { BsFillArrowRightCircleFill, BsFillGearFill } from 'react-icons/bs';
-import { getMotorsDetail } from '../../api/motors';
 import './Detail.css';
 
 const DetailPage = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMotorsDetail);
-  }, []);
-
   const motor = useSelector((state) => state.motorsDetailReducer.motors) || [];
 
   return (
