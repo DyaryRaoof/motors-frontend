@@ -6,11 +6,6 @@ const Navbar = () => {
   const [userName, setUserName] = useState('');
   const [loginReponse, setLoginReponse] = useState('');
 
-  // const navigate = useNavigate();
-  // const handleNavigate = (path) => {
-  //   navigate(path, { replace: true });
-  // };
-
   const handlSubmit = async (e) => {
     e.preventDefault();
     const response = await loginUser({ name: userName });
@@ -40,7 +35,7 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/#">My Reservations</a>
+              <Link to="/reservations" className="nav-link">Reservations</Link>
             </li>
           </ul>
           <div>

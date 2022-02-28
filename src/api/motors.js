@@ -3,8 +3,8 @@ import { fetchMotors } from '../redux/motors/motors';
 
 const BASE_URL = 'http://localhost:3001/api/v1/motors';
 
-const getMotors = async (dispatch) => {
-  const response = await axios.get(BASE_URL);
+const getMotors = (dispatch) => {
+  const response = axios.get(BASE_URL);
   dispatch(fetchMotors(response.data));
 };
 
