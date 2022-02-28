@@ -1,11 +1,9 @@
-import Navbar from './components/Navbar';
-import Main from './components/Main';
+import Navigation from './Navigation';
 
 function App() {
   return (
     <div>
-      <Navbar key="1" />
-      <Main key="2" />
+      <Navigation />
     </div>
   );
 }
