@@ -1,9 +1,15 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import loginUser from '../api/login';
 
 const Navbar = () => {
   const [userName, setUserName] = useState('');
   const [loginReponse, setLoginReponse] = useState('');
+
+  // const navigate = useNavigate();
+  // const handleNavigate = (path) => {
+  //   navigate(path, { replace: true });
+  // };
 
   const handlSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +36,7 @@ const Navbar = () => {
               <a className="nav-link active" aria-current="page" href="/#">Motorcycles</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#">Reserve</a>
+              <Link to="/reserve" className="nav-link">Reserve</Link>
             </li>
 
             <li className="nav-item">
