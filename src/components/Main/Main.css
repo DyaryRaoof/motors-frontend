@@ -10,6 +10,7 @@ aside {
 .sidebar-footer {
   position: absolute;
   bottom: 20px;
+  width: 15% !important;
 }
 
 .sidebar-item-active {
