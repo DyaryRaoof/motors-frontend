@@ -55,6 +55,13 @@ export default function ReserveForm() {
             {' '}
             {loginResponse}
           </span>
+          <section className="d-flex flex-column justify-content-center text-white">
+            <h2 className="text-center">Book a Test Ride</h2>
+            <p>
+              There are limited cities available, please choose from a city below and choose your
+              preferred date and time.
+            </p>
+          </section>
           <div className="d-flex">
             <DatePicker className="form-control me-2 rounded-pill me-1" onChange={onChange} value={selectedDate} />
             <select className="form-select me-2 rounded-pill me-1" onChange={(e) => setCity(e.target.value)} value={selectedCity}>
