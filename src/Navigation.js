@@ -10,7 +10,7 @@ const Navigation = () => (
       <Navbar />
       <Routes>
         <Route path="/" element={<Main />} exact />
-        <Route path="/Detail" element={<DetailPage />} />
+        <Route path="/Detail/:id" element={<DetailPage />} />
       </Routes>
     </div>
   </BrowserRouter>
