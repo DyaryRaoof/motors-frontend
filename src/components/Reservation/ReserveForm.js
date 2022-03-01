@@ -14,6 +14,7 @@ export default function ReserveForm() {
     const response = await reserveMotors({
       city: selectedCity, date: selectedDate, user_id: 1, motor_id: 1,
     });
+    // motor_id is hardcoded for now but should be dynamic
     if (!response.error) {
       setLoginResponse('Motor Succesfully Reserved');
     } else {
