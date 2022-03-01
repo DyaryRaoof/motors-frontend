@@ -18,6 +18,7 @@ export default function Reservation() {
           <p>{reservation.date}</p>
           <p>{reservation.time}</p>
           <p>{reservation.city}</p>
+          <p>{reservation.motor}</p>
         </div>
       ))}
     </>

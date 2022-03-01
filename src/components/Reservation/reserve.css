@@ -1,0 +1,6 @@
+.wrapper {
+  background-image: url("./assets/bike.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}

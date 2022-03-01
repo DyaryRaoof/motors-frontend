@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-date-picker';
 import reserveMotors from '../../api/reserveMotors';
+// import { fetchMotors } from '../../redux/motors/motors';
+import './reserve.css';
 
 export default function ReserveForm() {
   const [selectedCity, setCity] = useState('');
@@ -43,22 +45,32 @@ export default function ReserveForm() {
     'Lisbon',
     'Ljubljana',
   ];
-  return (
 
-    <form className="d-flex" onSubmit={handlSubmit}>
-      <span>
-        {' '}
-        {loginResponse}
-      </span>
-      <DatePicker onChange={onChange} value={selectedDate} />
-      <select className="form-select me-2 rounded-pill me-1" onChange={(e) => setCity(e.target.value)} value={selectedCity}>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-      <button className="btn btn-outline-success rounded-pill" type="submit">Book Now</button>
-    </form>
+  return (
+    <div className="wrapper">
+
+      <form className="d-flex flex-column h-100 justify-content-center align-items-center " onSubmit={handlSubmit}>
+        <section>
+          <span>
+            {' '}
+            {loginResponse}
+          </span>
+          <div className="d-flex">
+            <DatePicker className="form-control me-2 rounded-pill me-1" onChange={onChange} value={selectedDate} />
+            <select className="form-select me-2 rounded-pill me-1" onChange={(e) => setCity(e.target.value)} value={selectedCity}>
+              {options.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="d-flex w-100 justify-content-center pt-5">
+            <button className="btn btn-outline-success rounded-pill" type="submit">Book Now</button>
+          </div>
+        </section>
+
+      </form>
+    </div>
   );
 }
