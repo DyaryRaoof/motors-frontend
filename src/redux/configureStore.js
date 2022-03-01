@@ -5,5 +5,7 @@ import motorsReducer from './motors/motors';
 import reservationsReducer from './reservations/reservations';
 import motorsDetailReducer from './motors/DetailMotors';
 
-const reducers = combineReducers({ motors: motorsReducer, motorsDetailReducer,  reservations: reservationsReducer  });
+const reducers = combineReducers({
+  motors: motorsReducer, motorsDetailReducer, reservations: reservationsReducer,
+});
 export default createStore(reducers, applyMiddleware(thunk, reduxLogger));

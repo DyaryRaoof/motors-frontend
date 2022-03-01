@@ -3,19 +3,21 @@ import Navbar from './components/Navbar';
 import Main from './components/Main';
 import ReserveForm from './components/Reservation/ReserveForm';
 import Reservation from './components/Reservation/Reservation';
-import Navigation from './Navigation';
+// import Navigation from './Navigation';
+import DetailPage from './components/DetailPage/DetailPage';
 
 function App() {
   return (
     <div>
-      <Navbar key="1" />
+      <Navbar />
 
-      <Routes key="2">
-        <Route path="/" element={<Main key="3" />} />
-        <Route path="/reserve" element={<ReserveForm key="4" />} />
-        <Route path="/reservations" element={<Reservation key="5" />} />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/reserve" element={<ReserveForm />} />
+        <Route path="/reservations" element={<Reservation />} />
+        <Route path="/Detail/:id" element={<DetailPage />} />
       </Routes>
-      <Navigation />
+      {/* <Navigation /> */}
     </div>
   );
 }
