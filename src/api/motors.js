@@ -10,7 +10,6 @@ export const getMotors = async (dispatch) => {
 };
 
 export const getMotorsDetail = (id) => async (dispatch) => {
-  console.log(id);
   fetch(`http://localhost:3001/api/v1/motors/${id}`)
     .then((res) => res.json())
     .then((resResponse) => dispatch(fetchDetailMotors(resResponse)));
