@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import DatePicker from 'react-date-picker';
 import reserveMotors from '../../api/reserveMotors';
-// import { fetchMotors } from '../../redux/motors/motors';
 import './reserve.css';
 
 export default function ReserveForm() {
-  const [selectedCity, setCity] = useState('');
+  const [selectedCity, setCity] = useState('London');
   const [selectedDate, onChange] = useState(new Date());
   const [loginResponse, setLoginResponse] = useState('');
-  const [motorId, setMotorId] = useState('');
+  const [motorId, setMotorId] = useState(1);
   const user = useSelector((state) => state.usersReducer.user);
   const motors = useSelector((state) => state.motors.motors) || [];
   const handlSubmit = async (e) => {
@@ -59,9 +58,11 @@ export default function ReserveForm() {
           </span>
           <section className="d-flex flex-column justify-content-center text-white">
             <h2 className="text-center">Book a Test Ride</h2>
-            <p>
+            <p className="text-center">
               There are limited cities available, please choose from a city below and choose your
               preferred date and time.
+              <br />
+              Note that London is the default city.
             </p>
           </section>
           <div className="d-flex">
