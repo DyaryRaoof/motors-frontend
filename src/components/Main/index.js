@@ -4,17 +4,17 @@ import { GrPinterest } from 'react-icons/gr';
 import { BsTwitter, BsVimeo } from 'react-icons/bs';
 import { GoTriangleRight, GoTriangleLeft } from 'react-icons/go';
 import './Main.css';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MotorCard from './MotorCard';
-import { getMotors, getMotorsDetail } from '../../api/motors';
+import { getMotorsDetail } from '../../api/motors';
 
 const Main = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getMotors);
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getMotors);
+  // }, []);
   const navigate = useNavigate();
   const motors = useSelector((state) => state.motors.motors) || [];
   const GoToDetailPage = (id) => {

@@ -9,21 +9,20 @@ export default function ReserveForm() {
   const [selectedCity, setCity] = useState('');
   const [selectedDate, onChange] = useState(new Date());
   const [loginResponse, setLoginResponse] = useState('');
+  const [motorId, setMotorId] = useState('');
   const user = useSelector((state) => state.usersReducer.user);
-
+  const motors = useSelector((state) => state.motors.motors) || [];
   const handlSubmit = async (e) => {
     e.preventDefault();
     const response = await reserveMotors({
-      city: selectedCity, date: selectedDate, user_id: user.id, motor_id: 1,
+      city: selectedCity, date: selectedDate, user_id: user.id, motor_id: parseInt(motorId, 10),
     });
-    // motor_id is hardcoded for now but should be dynamic
     if (!response.error) {
       setLoginResponse('Motor Succesfully Reserved');
     } else {
       setLoginResponse(response.error);
     }
   };
-
   const options = [
     'London',
     'Paris',
@@ -71,6 +70,13 @@ export default function ReserveForm() {
               {options.map((option) => (
                 <option key={option} value={option}>
                   {option}
+                </option>
+              ))}
+            </select>
+            <select className="form-select me-2 rounded-pill me-1" onChange={(e) => setMotorId(e.target.value)} value={motorId}>
+              {motors.map((motor) => (
+                <option key={motor.id} value={motor.id}>
+                  {motor.name}
                 </option>
               ))}
             </select>
