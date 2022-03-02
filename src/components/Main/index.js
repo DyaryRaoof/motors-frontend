@@ -41,7 +41,7 @@ const Main = () => {
           spaceBetween={0}
           slidesPerView={width > 768 ? 3 : 1}
         >
-          {[...motors, ...motors].map((motor) => (
+          {motors.map((motor) => (
             <SwiperSlide key={motor.id}>
               <MotorCard motor={motor} onClick={() => { GoToDetailPage(motor.id); }} />
             </SwiperSlide>
