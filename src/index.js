@@ -9,7 +9,7 @@ import store from './redux/configureStore';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store} key="1">
+    <Provider store={store} key="1afsfaf">
       <App key="2" />
     </Provider>
   </React.StrictMode>,
