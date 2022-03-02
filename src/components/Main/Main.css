@@ -43,6 +43,7 @@ aside {
 .main-page-handle-left {
   position: absolute;
   z-index: 100;
+  margin-left: -12px;
   top: 50vh;
   width: 60px;
   height: 50px;
