@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { fetchMotors } from '../redux/motors/motors';
 import { fetchDetailMotors } from '../redux/motors/DetailMotors';
+import { addItem } from '../redux/motors/AddItem';
 
 const BASE_URL = 'http://localhost:3000/api/v1/motors';
 
@@ -10,8 +11,21 @@ export const getMotors = async (dispatch) => {
 };
 
 export const getMotorsDetail = (id) => async (dispatch) => {
-  console.log(id);
   fetch(`http://localhost:3000/api/v1/motors/${id}`)
     .then((res) => res.json())
     .then((resResponse) => dispatch(fetchDetailMotors(resResponse)));
+};
+
+export const AddItemHandler = (data) => async (dispatch) => {
+  const formData = new FormData();
+  formData.append('name', data.name);
+  formData.append('description', data.description);
+  formData.append('price', data.price);
+  formData.append('image', data.image);
+  await fetch('http://localhost:3000/api/v1/motors/create', {
+    method: 'POST',
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((resResponse) => dispatch(addItem(resResponse)));
 };
