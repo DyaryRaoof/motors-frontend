@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import DatePicker from 'react-date-picker';
 import reserveMotors from '../../api/reserveMotors';
 // import { fetchMotors } from '../../redux/motors/motors';
@@ -8,11 +9,12 @@ export default function ReserveForm() {
   const [selectedCity, setCity] = useState('');
   const [selectedDate, onChange] = useState(new Date());
   const [loginResponse, setLoginResponse] = useState('');
+  const user = useSelector((state) => state.usersReducer.user);
 
   const handlSubmit = async (e) => {
     e.preventDefault();
     const response = await reserveMotors({
-      city: selectedCity, date: selectedDate, user_id: 1, motor_id: 1,
+      city: selectedCity, date: selectedDate, user_id: user.id, motor_id: 1,
     });
     // motor_id is hardcoded for now but should be dynamic
     if (!response.error) {

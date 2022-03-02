@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import loginUser from '../api/login';
+import { getUserSuccess } from '../redux/users/users';
 
 const Navbar = () => {
   const [userName, setUserName] = useState('');
   const [loginReponse, setLoginReponse] = useState('');
+  const dispach = useDispatch();
 
   const handlSubmit = async (e) => {
     e.preventDefault();
@@ -16,6 +19,8 @@ const Navbar = () => {
     } else {
       setLoginReponse(response.error.name);
     }
+
+    dispach(getUserSuccess(response.user));
   };
 
   return (
