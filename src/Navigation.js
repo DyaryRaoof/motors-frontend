@@ -18,14 +18,10 @@ const Navigation = () => (
           <Routes>
             <Route path="/" element={<Main />} exact />
             <Route path="/Detail/:id" element={<DetailPage />} />
+            <Route path="/AddItem" element={<AddItem />} />
           </Routes>
         </div>
       </div>
-      <Routes>
-        <Route path="/" element={<Main />} exact />
-        <Route path="/Detail/:id" element={<DetailPage />} />
-        <Route path="/AddItem" element={<AddItem />} />
-      </Routes>
     </div>
   </BrowserRouter>
 );
