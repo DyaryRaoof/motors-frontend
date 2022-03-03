@@ -5,17 +5,26 @@ import DetailPage from './components/DetailPage/DetailPage';
 import ReserveForm from './components/Reservation/ReserveForm';
 import Reservation from './components/Reservation/Reservation';
 import Navbar from './components/Navbar';
+import SideBar from './components/Sidebar';
+import AddItem from './components/AddItem/AddItem';
 
 const Navigation = () => (
   <BrowserRouter>
     <div>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Main />} exact />
-        <Route path="/Detail/:id" element={<DetailPage />} />
-        <Route path="/reserve" element={<ReserveForm />} />
-        <Route path="/reservations" element={<Reservation />} />
-      </Routes>
+      <div className="row">
+        <div className="col-2 p-0">
+          <SideBar />
+        </div>
+        <div className="col-md-10 col-sm-12 latest-models-wrapper">
+          <Routes>
+            <Route path="/" element={<Main />} exact />
+            <Route path="/Detail/:id" element={<DetailPage />} />
+            <Route path="/AddItem" element={<AddItem />} />
+            <Route path="/reservations" element={<Reservation />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   </BrowserRouter>
 );

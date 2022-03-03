@@ -1,81 +1,94 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { FaFacebookF, FaGooglePlus } from 'react-icons/fa';
-import { GrPinterest } from 'react-icons/gr';
-import { BsTwitter, BsVimeo } from 'react-icons/bs';
-import { GoTriangleRight, GoTriangleLeft } from 'react-icons/go';
+import { BsCaretRightFill, BsFillCaretLeftFill } from 'react-icons/bs';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import './Main.css';
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 import MotorCard from './MotorCard';
 import { getMotorsDetail } from '../../api/motors';
+=======
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import MotorCard from './MotorCard';
+import { getMotors, getMotorsDetail } from '../../api/motors';
+import 'swiper/css';
+>>>>>>> dev
 
 const Main = () => {
   const dispatch = useDispatch();
+  const [width, setWidth] = useState(window.innerWidth);
 
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+  };
+
+<<<<<<< HEAD
   // useEffect(() => {
   //   dispatch(getMotors);
   // }, []);
+=======
+  useEffect(() => {
+    dispatch(getMotors);
+    window.addEventListener('resize', updateDimensions);
+
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+>>>>>>> dev
   const navigate = useNavigate();
   const motors = useSelector((state) => state.motors.motors) || [];
+
   const GoToDetailPage = (id) => {
     dispatch(getMotorsDetail(id)).then(() => {
       navigate(`/Detail/${id}`);
     });
   };
+
   return (
     <div>
-      <div className="row">
-        <div className="col-2 p-0">
-          <aside className="p-3 d-sm-block d-none">
-            <h1>Motors</h1>
-            <div className="sidebar-items">
-              <h5 className="sidebar-item-active py-2 fw-bold ps-2">MODELS</h5>
-              <h5 className="py-2f fw-bold ps-2">LIFESTYLE</h5>
-              <h5 className="py-2 fw-bold ps-2">SHOP</h5>
-              <h5 className="py-2 fw-bold ps-2">TEST DRIVE</h5>
-            </div>
-            <div className="sidebar-footer">
-              <div className="sidebar-icons">
-                <span className="p-2">
-                  <BsTwitter />
-                </span>
-                <span className="p-2">
-                  <FaFacebookF />
-                </span>
-                <span className="p-2">
-                  <FaGooglePlus />
-                </span>
-                <span className="p-2">
-                  <BsVimeo />
+      <h1 className="fw-bolder text-center">LATEST MODELS</h1>
+      <p className="text-muted text-center main-screen-subtitle">please select a Motorcyle Model</p>
+      <div className="row motor-cards-wrapper">
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={width > 768 ? 3 : 1}
+        >
+          {motors.map((motor) => (
+            <SwiperSlide key={motor.id}>
+              <MotorCard motor={motor} onClick={() => { GoToDetailPage(motor.id); }} />
+            </SwiperSlide>
+          ))}
+          ...
+        </Swiper>
+      </div>
+      <div className="d-sm-block d-none">
+        <button
+          type="button"
+          className="borderless bg-trasparent"
+          onClick={() => {
+            const { swiper } = document.querySelector('.swiper');
+            swiper.slidePrev();
+          }}
+        >
+          <div className="main-page-handle-left d-flex justify-content-center align-items-center">
+            <BsFillCaretLeftFill />
+          </div>
+        </button>
+        <button
+          type="button"
+          className="borderless bg-transparent"
+          onClick={
 
-                </span>
-                <span className="p-2">
-                  <GrPinterest />
-                </span>
-              </div>
-              <div>© 2015 Mustafa, Dyary && peter</div>
-            </div>
-            <div />
-          </aside>
-        </div>
-        <div className="col-md-10 col-sm-12 p-0 latest-models-wrapper">
-          <h1 className="fw-bolder text-center">LATEST MODELS</h1>
-          <p className="text-muted text-center main-screen-subtitle">please select a Motorcyle Model</p>
-          <div className="row motor-cards-wrapper">
-            {motors.map((motor) => (
-              <div className="col-md-4" key="1">
-                <MotorCard motor={motor} onClick={() => { GoToDetailPage(motor.id); }} />
-              </div>
-            ))}
+            () => {
+              const { swiper } = document.querySelector('.swiper');
+              swiper.slideNext();
+            }
+          }
+        >
+          <div className="main-page-handle-right d-flex  justify-content-center align-items-center">
+            <BsCaretRightFill />
           </div>
-          <div className="d-sm-block d-none">
-            <div className="main-page-handle-left d-flex justify-content-center align-items-center">
-              <GoTriangleRight />
-            </div>
-            <div className="main-page-handle-right d-flex  justify-content-center align-items-center">
-              <GoTriangleLeft />
-            </div>
-          </div>
-        </div>
+        </button>
       </div>
     </div>
 

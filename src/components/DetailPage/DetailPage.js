@@ -14,7 +14,7 @@ const DetailPage = () => {
           <img className="w-100" src={motor.image} alt={motor.name} />
         </div>
         <div className="col-md-3 col-12">
-          <div className="text-end">
+          <div className="text-md-end">
             <h1>{motor.name}</h1>
             <p>{motor.description}</p>
           </div>
