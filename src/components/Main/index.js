@@ -4,7 +4,6 @@ import { GrPinterest } from 'react-icons/gr';
 import { BsTwitter, BsVimeo } from 'react-icons/bs';
 import { GoTriangleRight, GoTriangleLeft } from 'react-icons/go';
 import './Main.css';
-// import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MotorCard from './MotorCard';
 import { getMotorsDetail } from '../../api/motors';

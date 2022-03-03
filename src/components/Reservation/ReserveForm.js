@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 import reserveMotors from '../../api/reserveMotors';
 import './reserve.css';
 
 export default function ReserveForm() {
+  const location = useLocation();
   const [selectedCity, setCity] = useState('London');
   const [selectedDate, onChange] = useState(new Date());
   const [loginResponse, setLoginResponse] = useState('');
-  const [motorId, setMotorId] = useState(1);
+  const [motorId, setMotorId] = useState(location.state ? location.state.id : '1');
   const user = useSelector((state) => state.usersReducer.user);
   const motors = useSelector((state) => state.motors.motors) || [];
   const handlSubmit = async (e) => {
