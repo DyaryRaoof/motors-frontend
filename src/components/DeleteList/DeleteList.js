@@ -10,9 +10,11 @@ const DeleteList = () => {
   }, []);
 
   const motors = useSelector((state) => state.motors.motors) || [];
+
   const handleDelete = (id) => {
-    dispatch(deleteMotor(id));
+    dispatch(deleteMotor(id)).then(() => alert('you delete item ')).then(() => dispatch(getMotors));
   };
+
   return (
     <div className="container">
       <div className="row">

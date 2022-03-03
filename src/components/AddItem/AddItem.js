@@ -12,8 +12,7 @@ const AddItem = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    dispatch(AddItemHandler(data));
-    reset();
+    dispatch(AddItemHandler(data)).then(() => alert('you add item ')).then(() => reset());
   };
 
   return (
