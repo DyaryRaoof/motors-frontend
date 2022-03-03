@@ -2,17 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BsCaretRightFill, BsFillCaretLeftFill } from 'react-icons/bs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './Main.css';
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom';
-import MotorCard from './MotorCard';
-import { getMotorsDetail } from '../../api/motors';
-=======
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MotorCard from './MotorCard';
 import { getMotors, getMotorsDetail } from '../../api/motors';
 import 'swiper/css';
->>>>>>> dev
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -22,11 +16,6 @@ const Main = () => {
     setWidth(window.innerWidth);
   };
 
-<<<<<<< HEAD
-  // useEffect(() => {
-  //   dispatch(getMotors);
-  // }, []);
-=======
   useEffect(() => {
     dispatch(getMotors);
     window.addEventListener('resize', updateDimensions);
@@ -34,7 +23,6 @@ const Main = () => {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
->>>>>>> dev
   const navigate = useNavigate();
   const motors = useSelector((state) => state.motors.motors) || [];
 
