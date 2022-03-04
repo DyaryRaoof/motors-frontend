@@ -2,7 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { AddItemHandler } from '../../api/motors';
+import { AddItemHandler, getMotors } from '../../api/motors';
 
 const AddItem = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,10 @@ const AddItem = () => {
   const [isItemAdded, setIsItemAdded] = useState(false);
 
   const onSubmit = (data) => {
-    dispatch(AddItemHandler(data)).then(() => setIsItemAdded(true)).then(() => reset());
+    dispatch(AddItemHandler(data))
+      .then(() => setIsItemAdded(true))
+      .then(() => reset())
+      .then(() => dispatch(getMotors()));
   };
 
   return (
