@@ -35,14 +35,16 @@ const Main = () => {
     <div>
       <h1 className="fw-bolder text-center">LATEST MODELS</h1>
       <p className="text-muted text-center main-screen-subtitle">please select a Motorcyle Model</p>
-      <div className="row motor-cards-wrapper">
+      <div className="row">
         <Swiper
           spaceBetween={0}
           slidesPerView={width > 768 ? 3 : 1}
         >
           {motors.map((motor) => (
             <SwiperSlide key={motor.id}>
-              <MotorCard motor={motor} onClick={() => { GoToDetailPage(motor.id); }} />
+              <div className="d-flex justify-content-center">
+                <MotorCard motor={motor} onClick={() => { GoToDetailPage(motor.id); }} />
+              </div>
             </SwiperSlide>
           ))}
           ...
