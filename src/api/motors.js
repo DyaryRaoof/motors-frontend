@@ -3,16 +3,15 @@ import { fetchMotors } from '../redux/motors/motors';
 import { fetchDetailMotors } from '../redux/motors/DetailMotors';
 import { addItem } from '../redux/motors/AddItem';
 import { removeItem } from '../redux/motors/DeleteList';
-
-const BASE_URL = 'http://localhost:3000/api/v1/motors';
+import BASE_URL from './baseURL';
 
 export const getMotors = async (dispatch) => {
-  const response = await axios.get(BASE_URL);
+  const response = await axios.get(`${BASE_URL}motors`);
   dispatch(fetchMotors(response.data));
 };
 
 export const getMotorsDetail = (id) => async (dispatch) => {
-  fetch(`http://localhost:3000/api/v1/motors/${id}`)
+  fetch(`${BASE_URL}motors/${id}`)
     .then((res) => res.json())
     .then((resResponse) => dispatch(fetchDetailMotors(resResponse)));
 };
@@ -23,7 +22,7 @@ export const AddItemHandler = (data) => async (dispatch) => {
   formData.append('description', data.description);
   formData.append('price', data.price);
   formData.append('image', data.image);
-  await fetch('http://localhost:3000/api/v1/motors/create', {
+  await fetch(`${BASE_URL}motors/create`, {
     method: 'POST',
     body: formData,
   })
@@ -32,7 +31,7 @@ export const AddItemHandler = (data) => async (dispatch) => {
 };
 
 export const deleteMotor = (id) => async (dispatch) => {
-  fetch(`http://localhost:3000/api/v1/motors/${id}/destroy`, {
+  fetch(`${BASE_URL}motors/${id}/destroy`, {
     method: 'DELETE',
   })
     .then((res) => res.json())

@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getMotors, deleteMotor } from '../../api/motors';
 import './DeleteList.css';
+import Modal from './Modal';
+import { deleteOneMotor } from '../../redux/motors/motors';
 
 const DeleteList = () => {
   const dispatch = useDispatch();
@@ -9,10 +11,13 @@ const DeleteList = () => {
     dispatch(getMotors);
   }, []);
 
+  let deleteId = 0;
+
   const motors = useSelector((state) => state.motors.motors) || [];
 
-  const handleDelete = (id) => {
-    dispatch(deleteMotor(id)).then(() => alert('you delete item ')).then(() => dispatch(getMotors));
+  const handleDelete = async (id) => {
+    dispatch(deleteMotor(id));
+    dispatch(deleteOneMotor(id));
   };
 
   return (
@@ -24,11 +29,11 @@ const DeleteList = () => {
               <li key={motor.id} className="list-group-item">
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="d-flex justify-content-between">
-                    <span>{motor.name}</span>
+                    <span className="delete-list-item-name">{motor.name}</span>
                     <img src={motor.image} alt={motor.name} className="mx-5" />
                   </div>
                   <div>
-                    <button onClick={() => handleDelete(motor.id)} className="btn btn-primary" type="submit">Delete</button>
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn btn-primary" type="submit" onClick={() => { deleteId = motor.id; }}>Delete</button>
                   </div>
                 </div>
               </li>
@@ -36,6 +41,10 @@ const DeleteList = () => {
           </ul>
         </div>
       </div>
+      <Modal onOKPressed={() => {
+        handleDelete(deleteId);
+      }}
+      />
     </div>
   );
 };
