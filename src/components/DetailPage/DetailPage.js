@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector } from 'react-redux';
 import { BsFillArrowRightCircleFill, BsFillGearFill } from 'react-icons/bs';
@@ -5,7 +6,7 @@ import './Detail.css';
 
 const DetailPage = () => {
   const motor = useSelector((state) => state.motorsDetailReducer.motors) || [];
-
+  const navigate = useNavigate();
   return (
     <div className="container mt-5">
       <div className="row">
@@ -36,7 +37,7 @@ const DetailPage = () => {
           <div className="d-flex justify-content-end">
             <div className="resorve p-s">
               <BsFillGearFill className="mx-2" size={25} color="white" />
-              <button className="btn ReserveBtn btn-primary" type="submit">Reserve</button>
+              <button className="btn btn-primary" type="submit" onClick={() => { navigate('/reserve', { state: { id: motor.id } }); }}>Reserve</button>
               <BsFillArrowRightCircleFill className="mx-2" size={25} color="white" />
             </div>
           </div>
