@@ -11,7 +11,16 @@ export default function ReserveForm() {
   const [selectedCity, setCity] = useState('London');
   const [selectedDate, onChange] = useState(new Date());
   const [loginResponse, setLoginResponse] = useState('');
-  const [motorId, setMotorId] = useState(location.state ? location.state.id : motors[0].id);
+  const getMotorId = () => {
+    if (location.state) {
+      return location.state.id;
+    }
+    if (motors[0]) {
+      return motors[0].id;
+    }
+    return 1;
+  };
+  const [motorId, setMotorId] = useState(getMotorId());
   const user = useSelector((state) => state.usersReducer.user);
 
   const handlSubmit = async (e) => {

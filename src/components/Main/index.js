@@ -9,6 +9,7 @@ import { getMotorsDetail } from '../../api/motors';
 import 'swiper/css';
 
 const Main = () => {
+  const motors = useSelector((state) => state.motors.motors) || [];
   const dispatch = useDispatch();
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -20,10 +21,9 @@ const Main = () => {
     window.addEventListener('resize', updateDimensions);
 
     return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
+  }, [motors]);
 
   const navigate = useNavigate();
-  const motors = useSelector((state) => state.motors.motors) || [];
 
   const GoToDetailPage = (id) => {
     dispatch(getMotorsDetail(id)).then(() => {

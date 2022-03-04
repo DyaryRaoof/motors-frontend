@@ -9,13 +9,18 @@ const AddItem = () => {
   const {
     register, handleSubmit, reset,
   } = useForm();
-  const [isItemAdded, setIsItemAdded] = useState(false);
+  const [isItemAdded, setIsItemAdded] = useState(null);
+  const [errorReponse, setErrorReponse] = useState(null);
 
-  const onSubmit = (data) => {
-    dispatch(AddItemHandler(data))
-      .then(() => setIsItemAdded(true))
-      .then(() => reset())
-      .then(() => dispatch(getMotors()));
+  const onSubmit = async (data) => {
+    const response = await AddItemHandler(dispatch, data);
+    if (response.status === 201) {
+      setIsItemAdded(true);
+      reset();
+      dispatch(getMotors);
+    } else {
+      setErrorReponse(JSON.stringify(response.data));
+    }
   };
 
   return (
@@ -33,6 +38,14 @@ const AddItem = () => {
             isItemAdded && (
               <div className="alert alert-success mt-3 ms-1" role="alert">
                 MotorCycle Added Successfully
+              </div>
+            )
+          }
+
+          {
+            errorReponse && (
+              <div className="alert alert-danger mt-3 ms-1" role="alert">
+                {errorReponse}
               </div>
             )
           }

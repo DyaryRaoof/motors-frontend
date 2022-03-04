@@ -16,18 +16,19 @@ export const getMotorsDetail = (id) => async (dispatch) => {
     .then((resResponse) => dispatch(fetchDetailMotors(resResponse)));
 };
 
-export const AddItemHandler = (data) => async (dispatch) => {
+export const AddItemHandler = async (dispatch, data) => {
   const formData = new FormData();
   formData.append('name', data.name);
   formData.append('description', data.description);
   formData.append('price', data.price);
   formData.append('image', data.image);
-  await fetch(`${BASE_URL}motors/create`, {
-    method: 'POST',
-    body: formData,
-  })
-    .then((res) => res.json())
-    .then((resResponse) => dispatch(addItem(resResponse)));
+  try {
+    const response = await axios.post(`${BASE_URL}motors/create`, formData);
+    dispatch(addItem(response.data));
+    return response;
+  } catch (err) {
+    return err.response;
+  }
 };
 
 export const deleteMotor = (id) => async (dispatch) => {
