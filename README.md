@@ -8,7 +8,7 @@ This is a website that allows users to login, see list of motorcycle models, reg
 
 ![screenshot](./screenshot2.png)
 
-![screenshot](./screenshot2.png)
+![screenshot](./screenshot3.png)
 
 ## Built With
 
