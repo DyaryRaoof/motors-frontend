@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import loginUser from '../api/login';
+import { getUserSuccess } from '../redux/users/users';
 
 const Navbar = () => {
   const [userName, setUserName] = useState('');
   const [loginReponse, setLoginReponse] = useState('');
+  const dispach = useDispatch();
 
   const handlSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +19,8 @@ const Navbar = () => {
     } else {
       setLoginReponse(response.error.name);
     }
+
+    dispach(getUserSuccess(response.user));
   };
 
   return (
@@ -30,11 +36,11 @@ const Navbar = () => {
               <a className="nav-link active" aria-current="page" href="/#">Motorcycles</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#">Reserve</a>
+              <Link to="/reserve" className="nav-link">Reserve</Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/#">My Reservations</a>
+              <Link to="/reservations" className="nav-link">Reservations</Link>
             </li>
           </ul>
           <div>
