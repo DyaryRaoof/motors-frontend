@@ -13,8 +13,14 @@ export default function ReserveForm() {
   const [motorId, setMotorId] = useState(location.state ? location.state.id : '1');
   const user = useSelector((state) => state.usersReducer.user);
   const motors = useSelector((state) => state.motors.motors) || [];
+
   const handlSubmit = async (e) => {
     e.preventDefault();
+    if (!user.id) {
+      setLoginResponse('User should login first');
+      return;
+    }
+
     const response = await reserveMotors({
       city: selectedCity, date: selectedDate, user_id: user.id, motor_id: parseInt(motorId, 10),
     });
