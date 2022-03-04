@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import Sidebar from '../Sidebar';
 import './AddItem.css';
 import { AddItemHandler } from '../../api/motors';
 
@@ -12,15 +11,11 @@ const AddItem = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    dispatch(AddItemHandler(data));
-    reset();
+    dispatch(AddItemHandler(data)).then(() => alert('you add item ')).then(() => reset());
   };
 
   return (
     <div className="row">
-      <div className="col-2 p-0">
-        <Sidebar />
-      </div>
       <div className="col-md-10 col-sm-12 p-0 d-flex justify-content-center align-items-center">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">

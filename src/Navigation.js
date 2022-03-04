@@ -5,8 +5,9 @@ import DetailPage from './components/DetailPage/DetailPage';
 import ReserveForm from './components/Reservation/ReserveForm';
 import Reservation from './components/Reservation/Reservation';
 import Navbar from './components/Navbar';
-import SideBar from './components/Sidebar';
 import AddItem from './components/AddItem/AddItem';
+import DeleteList from './components/DeleteList/DeleteList';
+import SideBar from './components/Sidebar';
 
 const Navigation = () => (
   <BrowserRouter>
@@ -21,6 +22,7 @@ const Navigation = () => (
             <Route path="/" element={<Main />} exact />
             <Route path="/Detail/:id" element={<DetailPage />} />
             <Route path="/AddItem" element={<AddItem />} />
+            <Route path="/DeleteList" element={<DeleteList />} />
             <Route path="/reservations" element={<Reservation />} />
             <Route path="/reserve" element={<ReserveForm />} />
           </Routes>
