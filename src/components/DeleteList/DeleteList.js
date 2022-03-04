@@ -17,13 +17,13 @@ const DeleteList = () => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-md-6 col-12">
+      <div className="row mx-5">
+        <div className="col-12">
           <ul className="list-group">
             {motors.map((motor) => (
               <li key={motor.id} className="list-group-item">
-                <div className="d-flex justify-content-around align-items-center">
-                  <div>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex justify-content-between">
                     <span>{motor.name}</span>
                     <img src={motor.image} alt={motor.name} className="mx-5" />
                   </div>

@@ -36,7 +36,7 @@ const DetailPage = () => {
           <div className="d-flex justify-content-end">
             <div className="resorve p-s">
               <BsFillGearFill className="mx-2" size={25} color="white" />
-              <button className="btn btn-primary" type="submit">Reserve</button>
+              <button className="btn ReserveBtn btn-primary" type="submit">Reserve</button>
               <BsFillArrowRightCircleFill className="mx-2" size={25} color="white" />
             </div>
           </div>

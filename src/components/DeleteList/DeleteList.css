@@ -2,3 +2,11 @@ img {
   width: 100px;
   height: 100px;
 }
+
+.cardList {
+  width: 300px;
+}
+
+span {
+  max-width: 80px;
+}

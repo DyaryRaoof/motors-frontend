@@ -38,7 +38,7 @@ const Navbar = () => {
             </li>
           </ul>
           <div>
-            <form className="d-flex" onSubmit={handlSubmit}>
+            <form className="d-flex align-items-center" onSubmit={handlSubmit}>
               <input className="form-control me-2 rounded-pill" type="search" placeholder="UserName" aria-label="Search" onChange={(e) => setUserName(e.target.value)} value={userName} />
               <button className="btn btn-outline-success rounded-pill" type="submit">Login</button>
             </form>
