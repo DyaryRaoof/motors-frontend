@@ -11,7 +11,7 @@ const DetailPage = () => {
     <div className="container mt-5">
       <div className="row">
         <div className="col-md-8 col-12 ">
-          <img className="w-100" src={motor.image} alt={motor.name} />
+          <img className="w-100 h-100" src={motor.image} alt={motor.name} />
         </div>
         <div className="col-md-3 col-12">
           <div className="text-md-end">
@@ -37,7 +37,7 @@ const DetailPage = () => {
           <div className="d-flex justify-content-end">
             <div className="resorve p-s">
               <BsFillGearFill className="mx-2" size={25} color="white" />
-              <button className="btn btn-primary" type="submit" onClick={() => { navigate('/reserve', { state: { id: motor.id } }); }}>Reserve</button>
+              <button className="btn btn-primary bg-transparent borderless" type="submit" onClick={() => { navigate('/reserve', { state: { id: motor.id } }); }}>Reserve</button>
               <BsFillArrowRightCircleFill className="mx-2" size={25} color="white" />
             </div>
           </div>

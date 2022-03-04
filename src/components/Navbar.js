@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/#">Motorcycles</a>
+              <Link to="/" className="nav-link active">Motorcycles</Link>
             </li>
             <li className="nav-item">
               <Link to="/reserve" className="nav-link">Reserve</Link>
@@ -45,12 +45,11 @@ const Navbar = () => {
           </ul>
           <div>
             <form className="d-flex align-items-center" onSubmit={handlSubmit}>
-              <input className="form-control me-2 rounded-pill" type="search" placeholder="UserName" aria-label="Search" onChange={(e) => setUserName(e.target.value)} value={userName} />
+              <input className="form-control me-2 rounded-pill m-0" type="search" placeholder="UserName" aria-label="Search" onChange={(e) => setUserName(e.target.value)} value={userName} />
               <button className="btn btn-outline-success rounded-pill" type="submit">Login</button>
             </form>
-            <div>{loginReponse}</div>
+            {loginReponse ? <div className="text-start ms-2">{loginReponse}</div> : null}
           </div>
-
         </div>
       </div>
     </nav>

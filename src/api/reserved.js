@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { fetchReservations } from '../redux/reservations/reservations';
-
-const BASE_URL = 'http://localhost:3001/api/v1/reservations';
+import BASE_URL from './baseURL';
 
 const getReserved = () => async (dispatch) => {
-  const response = await axios.get(BASE_URL);
+  const response = await axios.get(`${BASE_URL}reservations`);
   dispatch(fetchReservations(response.data));
 };
 

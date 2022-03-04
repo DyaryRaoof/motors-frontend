@@ -25,7 +25,7 @@ const SideBar = () => {
           <h5 className={`${clickedIndex === 3 && 'sidebar-item-active '} py-2 fw-bold ps-2`}>ADD MOTOCYCLE</h5>
         </button>
         <button type="button" onClick={() => { setClickedIndex(4); navigate('/DeleteList'); }} className="bg-transparent borderless w-100 text-start">
-          <h5 className={`${clickedIndex === 4 && 'sidebar-item-active '} py-2 fw-bold ps-2`}>Delete List</h5>
+          <h5 className={`${clickedIndex === 4 && 'sidebar-item-active '} py-2 fw-bold ps-2`}>DELETE LIST</h5>
         </button>
       </div>
       <div className="sidebar-footer">

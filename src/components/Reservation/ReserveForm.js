@@ -6,13 +6,13 @@ import reserveMotors from '../../api/reserveMotors';
 import './reserve.css';
 
 export default function ReserveForm() {
+  const motors = useSelector((state) => state.motors.motors) || [];
   const location = useLocation();
   const [selectedCity, setCity] = useState('London');
   const [selectedDate, onChange] = useState(new Date());
   const [loginResponse, setLoginResponse] = useState('');
-  const [motorId, setMotorId] = useState(location.state ? location.state.id : '1');
+  const [motorId, setMotorId] = useState(location.state ? location.state.id : motors[0].id);
   const user = useSelector((state) => state.usersReducer.user);
-  const motors = useSelector((state) => state.motors.motors) || [];
 
   const handlSubmit = async (e) => {
     e.preventDefault();

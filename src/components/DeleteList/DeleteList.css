@@ -7,6 +7,6 @@ img {
   width: 300px;
 }
 
-span {
-  max-width: 80px;
+.delete-list-item-name {
+  width: 80px;
 }
