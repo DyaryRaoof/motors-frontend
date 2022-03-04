@@ -68,21 +68,23 @@ export default function ReserveForm() {
             </p>
           </section>
           <div className="d-flex">
-            <DatePicker className="form-control me-2 rounded-pill me-1" onChange={onChange} value={selectedDate} />
-            <select className="form-select me-2 rounded-pill me-1" onChange={(e) => setCity(e.target.value)} value={selectedCity}>
+            <select className="form-select me-2 rounded-pill " onChange={(e) => setCity(e.target.value)} value={selectedCity}>
               {options.map((option) => (
                 <option key={option} value={option}>
                   {option}
                 </option>
               ))}
             </select>
-            <select className="form-select me-2 rounded-pill me-1" onChange={(e) => setMotorId(e.target.value)} value={motorId}>
+            <select className="form-select me-2 rounded-pill" onChange={(e) => setMotorId(e.target.value)} value={motorId}>
               {motors.map((motor) => (
                 <option key={motor.id} value={motor.id}>
                   {motor.name}
                 </option>
               ))}
             </select>
+          </div>
+          <div className="d-flex justify-content-center w-100 mt-3">
+            <DatePicker className=" w-50 me-2 rounded-pill form-control" onChange={onChange} value={selectedDate} />
           </div>
           <div className="d-flex w-100 justify-content-center pt-5">
             <button className="btn btn-outline-success rounded-pill" type="submit">Book Now</button>

@@ -12,6 +12,6 @@ const reducers = combineReducers({
   reservations: reservationsReducer,
   usersReducer,
   motorsDetailReducer,
-  addItemReducer 
+  addItemReducer,
 });
 export default createStore(reducers, applyMiddleware(thunk, reduxLogger));

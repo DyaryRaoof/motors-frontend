@@ -5,7 +5,7 @@ import './Main.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import MotorCard from './MotorCard';
-import { getMotors, getMotorsDetail } from '../../api/motors';
+import { getMotorsDetail } from '../../api/motors';
 import 'swiper/css';
 
 const Main = () => {
@@ -17,7 +17,6 @@ const Main = () => {
   };
 
   useEffect(() => {
-    dispatch(getMotors);
     window.addEventListener('resize', updateDimensions);
 
     return () => window.removeEventListener('resize', updateDimensions);

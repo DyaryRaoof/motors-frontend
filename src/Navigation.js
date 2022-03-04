@@ -16,12 +16,13 @@ const Navigation = () => (
         <div className="col-2 p-0">
           <SideBar />
         </div>
-        <div className="col-md-10 col-sm-12 latest-models-wrapper">
+        <div className="col-md-10 col-sm-12 ">
           <Routes>
             <Route path="/" element={<Main />} exact />
             <Route path="/Detail/:id" element={<DetailPage />} />
             <Route path="/AddItem" element={<AddItem />} />
             <Route path="/reservations" element={<Reservation />} />
+            <Route path="/reserve" element={<ReserveForm />} />
           </Routes>
         </div>
       </div>
