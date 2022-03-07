@@ -27,16 +27,17 @@ export default function ReserveForm() {
     e.preventDefault();
     if (!user.id) {
       setLoginResponse('User should login first');
-      return;
-    }
-
-    const response = await reserveMotors({
-      city: selectedCity, date: selectedDate, user_id: user.id, motor_id: parseInt(motorId, 10),
-    });
-    if (!response.error) {
-      setLoginResponse('Motor Succesfully Reserved');
+    } else if (selectedDate < new Date() || selectedDate === new Date()) {
+      setLoginResponse('Date should be greater than today');
     } else {
-      setLoginResponse(response.error);
+      const response = await reserveMotors({
+        city: selectedCity, date: selectedDate, user_id: user.id, motor_id: parseInt(motorId, 10),
+      });
+      if (!response.error) {
+        setLoginResponse('Motor Succesfully Reserved');
+      } else {
+        setLoginResponse(response.error);
+      }
     }
   };
   const options = [
