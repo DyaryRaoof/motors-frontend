@@ -1,0 +1,84 @@
+aside {
+  height: 95vh;
+  border-right: 3px solid lightgrey;
+}
+
+.sidebar-items {
+  margin-top: 10vh;
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 20px;
+  width: 15% !important;
+}
+
+.sidebar-item-active {
+  background-color: #97bf11;
+  color: white;
+}
+
+.motor-card-image {
+  width: 200px;
+  height: auto;
+}
+
+.card-icon-circle {
+  width: 30px;
+  height: 30px;
+}
+
+.motor-card-description {
+  font-size: small;
+}
+
+.borderless {
+  border: none !important;
+}
+
+.main-screen-subtitle {
+  margin-bottom: 100px;
+}
+
+.main-page-handle-left {
+  position: absolute;
+  z-index: 100;
+  margin-left: -20px;
+  top: 50vh;
+  width: 60px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  background-color: lightgrey;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+}
+
+.main-page-handle-right {
+  position: absolute;
+  z-index: 100;
+  top: 50vh;
+  right: 0;
+  float: right;
+  width: 60px;
+  height: 50px;
+  background-color: #97bf11;
+  color: white;
+  font-size: 20px;
+  border-bottom-left-radius: 100%;
+  border-top-left-radius: 100%;
+}
+
+@media screen and (min-width: 780px) {
+  .motor-cards-wrapper {
+    margin: 0 200px !important;
+  }
+
+  .latest-models-wrapper {
+    margin-top: 200px !important;
+  }
+
+  .side-bar-item {
+    width: 100% !important;
+  }
+}
